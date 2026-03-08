@@ -1,0 +1,83 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
+    
+    - name: Install dependencies
+      working-directory: frontend
+      run: npm ci
+    
+    - name: Build application
+      working-directory: frontend
+      run: npm run build
+      env:
+        CI: false
+        DISABLE_ESLINT_PLUGIN: true
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1
+    
+    - name: Deploy to S3
+      run: |
+        aws s3 sync frontend/build/ s3://${{ secrets.S3_BUCKET_NAME }}/ --delete
+    
+    - name: Invalidate CloudFront cache
+      run: |
+        aws cloudfront create-invalidation \
+          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+          --paths "/*"
+
+  deploy-backend:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        lambda: [currency_detector, text_to_speech, vision_orchestrator]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Package Lambda function
+      run: |
+        cd backend/${{ matrix.lambda }}
+        if [ -f requirements.txt ]; then
+          pip install -r requirements.txt -t .
+        fi
+        zip -r lambda.zip . -x "*.git*" -x "*__pycache__*" -x "*.pyc" -x "deploy.sh" -x "*.md"
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1
+    
+    - name: Deploy to Lambda
+      run: |
+        aws lambda update-function-code \
+          --function-name sakshamai-${{ matrix.lambda }} \
+          --zip-file fileb://backend/${{ matrix.lambda }}/lambda.zip
