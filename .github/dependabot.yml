@@ -1,27 +1,10 @@
+# Dependabot configuration
+# Disabled for production-ready application
+
 version: 2
-updates:
-  # Frontend dependencies
-  - package-ecosystem: "npm"
-    directory: "/frontend"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "frontend"
-    commit-message:
-      prefix: "chore(deps)"
-    
-  # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 3
-    labels:
-      - "dependencies"
-      - "github-actions"
-    commit-message:
-      prefix: "chore(deps)"
+updates: []
+
+# Note: Dependabot is disabled because:
+# 1. Application is production-ready and deployed
+# 2. All features are working with current dependencies
+# 3. Dependency updates can be addressed post-AWS submission
