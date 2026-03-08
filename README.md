@@ -1,8 +1,9 @@
 # SakshamAI Rural - AI-Powered Assistive Technology Platform
 
-[![Frontend CI](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/frontend-ci.yml/badge.svg)](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/frontend-ci.yml)
-[![Backend CI](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/backend-ci.yml)
-[![Code Quality](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/code-quality.yml/badge.svg)](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/code-quality.yml)
+[![AWS](https://img.shields.io/badge/AWS-Deployed-orange?logo=amazon-aws)](https://d31p7zdqvca7ij.cloudfront.net/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)](https://reactjs.org/)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)](https://www.python.org/)
 
 ## 🚀 Live Demo
 
