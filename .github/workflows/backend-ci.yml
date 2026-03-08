@@ -19,7 +19,7 @@ jobs:
         lambda: [currency_detector, prescription_reader, text_to_speech, vision_orchestrator]
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     
     - name: Setup Python
       uses: actions/setup-python@v5
@@ -59,7 +59,7 @@ jobs:
         lambda: [currency_detector, prescription_reader, text_to_speech, vision_orchestrator]
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     
     - name: Setup Python
       uses: actions/setup-python@v5
