@@ -1,8 +1,16 @@
 # SakshamAI Rural - AI-Powered Assistive Technology Platform
 
-[![Frontend CI](https://github.com/YOUR_USERNAME/sakshamai-rural/actions/workflows/frontend-ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/sakshamai-rural/actions/workflows/frontend-ci.yml)
-[![Backend CI](https://github.com/YOUR_USERNAME/sakshamai-rural/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/sakshamai-rural/actions/workflows/backend-ci.yml)
-[![Code Quality](https://github.com/YOUR_USERNAME/sakshamai-rural/actions/workflows/code-quality.yml/badge.svg)](https://github.com/YOUR_USERNAME/sakshamai-rural/actions/workflows/code-quality.yml)
+[![Frontend CI](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/frontend-ci.yml/badge.svg)](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/frontend-ci.yml)
+[![Backend CI](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/backend-ci.yml)
+[![Code Quality](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/code-quality.yml/badge.svg)](https://github.com/kubra003/AI-for-bharat_sakshamAI/actions/workflows/code-quality.yml)
+
+## 🚀 Live Demo
+
+**Try the live application:** [https://d31p7zdqvca7ij.cloudfront.net/](https://d31p7zdqvca7ij.cloudfront.net/)
+
+All features are fully deployed and working on AWS!
+
+---
 
 ## Overview
 
